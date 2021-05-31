@@ -1,0 +1,11 @@
+<div data-test-room-main-content class="tw-room-main-content">
+  <div class="Box Link--muted p-4 d-flex flex-column no-underline">
+    <p>{{this.model.club}}</p>
+    <p>{{this.model.title}}</p>
+    <div class="d-flex flex-wrap flex-justify-between">
+      {{#each this.model.attendees as |attendee|}}
+        <Attendee @attendee={{attendee}} />
+      {{/each}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<LinkTo data-test-room @route="room" @model={{@room}} class="Box Link--muted p-4 mb-3 d-flex flex-column no-underline">
+  <p data-test-room-club-name>{{@room.club}}</p>
+  <p data-test-room-room-title>{{@room.title}}</p>
+  <div class="d-flex">
+    <div class="AvatarStack AvatarStack--two">
+      <div
+        class="AvatarStack-body tooltipped tooltipped-se tooltipped-align-left-1"
+        aria-label="avatar"
+      >
+        {{#each @room.avatars as |avatar|}}
+          <img
+            data-test-room-avatar
+            class="avatar"
+            height="20"
+            width="20"
+            alt="avatar"
+            src={{avatar.profilePicture}}
+          />
+        {{/each}}
+      </div>
+    </div>
+    <div class="d-flex flex-column">
+      {{#each @room.attendees as |attendee|}}
+        <span data-test-room-attendee-name>{{attendee.firstName}} {{attendee.lastName}}</span>
+      {{/each}}
+      <span data-test-number-count>{{@room.attendees.length}} / {{@room.numOfModerator}}</span>
+    </div>
+  </div>
+</LinkTo>

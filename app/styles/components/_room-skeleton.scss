@@ -1,0 +1,21 @@
+.tw-loading {
+  $loading-line-height: 21px;
+
+  &__club {
+    height: $loading-line-height;
+    width: 300px;
+    background-color: #eee;
+  }
+
+  &__title {
+    height: $loading-line-height * 3;
+    width: 100%;
+    background-color: #eee;
+  }
+
+  &__name {
+    height: $loading-line-height;
+    width: 125px;
+    background-color: #eee;
+  }
+}

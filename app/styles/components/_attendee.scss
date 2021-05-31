@@ -1,0 +1,29 @@
+.tw-attendee-container {
+  $tw-attendee-container-width: 65px;
+  width: $tw-attendee-container-width;
+}
+
+.tw-attendee {
+  position: relative;
+}
+
+.tw-attendee-emoji-container {
+  $emoji-width: 24px;
+  bottom: 0;
+  height: $emoji-width;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: $emoji-width;
+}
+
+.tw-attendee-emoji-container-cross-line {
+  $cross-line-width: 12px;
+  border-bottom: 2px solid var(--color-scale-red-6) ;
+  bottom: 4px;
+  height: $cross-line-width;
+  position: absolute;
+  right: 8px;
+  transform: rotate(0.62turn);
+  width: $cross-line-width;
+}

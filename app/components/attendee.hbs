@@ -1,0 +1,26 @@
+<div class="tw-attendee-container d-flex flex-column flex-items-center">
+  <div class="tw-attendee CircleBadge CircleBadge--small bg-gray-dark">
+    <img
+      data-test-attendee-avatar
+      src={{@attendee.profilePicture}}
+      alt="{{@attendee.firstName}} {{@attendee.lastName}}"
+      class="CircleBadge-icon"
+    />
+    <span data-test-attendee-microphone-emoji class="tw-attendee-emoji-container">
+      🎙
+    </span>
+    {{#unless @attendee.isMicrophoneOn}}
+      <span data-test-attendee-cross-line-on-microphone class="tw-attendee-emoji-container-cross-line"></span>
+    {{/unless}}
+  </div>
+  <div class="f6">
+    {{#if @attendee.isModerator}}
+      <span data-test-attendee-is-moderator >
+        💚
+      </span>
+    {{/if}}
+    <span data-test-attendee-is-first-name>
+      {{@attendee.firstName}}
+    </span>
+  </div>
+</div>

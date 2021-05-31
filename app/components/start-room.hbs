@@ -1,0 +1,145 @@
+<details
+  data-test-start-room
+  id="tw-start-room"
+  class="tw-start-room details-reset details-overlay details-overlay-dark"
+  {{reset-state this.resetState}}
+>
+  <summary
+    data-test-start-room-trigger-btn
+    class="btn btn-primary"
+    aria-haspopup="dialog"
+  >
+    {{t 'i18n.start_room'}}
+  </summary>
+  <details-dialog
+    data-test-start-room-content
+    class="Box Box--overlay d-flex flex-column anim-fade-in fast"
+  >
+    <div class="Box-header">
+      {{! template-lint-disable no-nested-interactive }}
+      <button
+        class="Box-btn-octicon btn-octicon float-right"
+        type="button"
+        aria-label="Close dialog"
+        data-close-dialog
+        data-test-start-room-close-btn
+        {{close-overlay}}
+      >
+        <svg
+          class="octicon octicon-x"
+          viewBox="0 0 12 16"
+          version="1.1"
+          width="12"
+          height="16"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"
+          ></path>
+        </svg>
+      </button>
+      <h3 class="Box-title">
+        {{t 'i18n.start_new_room_title'}}
+      </h3>
+    </div>
+    <div class="overflow-auto">
+      <div data-test-start-room-content class="Box-body overflow-auto">
+        <p>
+          {{t 'i18n.start_new_room_content'}}
+        </p>
+      </div>
+      <ul class="SelectMenu-list">
+        {{! template-lint-disable no-nested-interactive }}
+        <button
+          data-test-start-room-type={{this.roomTypes.open}}
+          type="button"
+          class="Box-row SelectMenu-item"
+          role="menuitemcheckbox"
+          aria-checked={{if (eq this.selectedRoom this.roomTypes.open) 'true'}}
+          {{on 'click' (set this.selectedRoom this.roomTypes.open)}}
+        >
+          <svg
+            class="SelectMenu-icon SelectMenu-icon--check octicon octicon-check"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            width="16"
+            height="16"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M13.78 4.22C13.9204 4.36062 13.9993 4.55125 13.9993 4.75C13.9993 4.94875 13.9204 5.13937 13.78 5.28L6.53 12.53C6.38937 12.6704 6.19875 12.7493 6 12.7493C5.80125 12.7493 5.61062 12.6704 5.47 12.53L2.22 9.28C2.08752 9.13782 2.0154 8.94978 2.01882 8.75547C2.02225 8.56117 2.10096 8.37579 2.23838 8.23837C2.37579 8.10096 2.56118 8.02225 2.75548 8.01882C2.94978 8.01539 3.13782 8.08752 3.28 8.22L6 10.94L12.72 4.22C12.8606 4.07955 13.0512 4.00066 13.25 4.00066C13.4487 4.00066 13.6394 4.07955 13.78 4.22Z"
+            ></path>
+          </svg>
+          <svg class="mr-2" width="32" height="32" fill="currentColor">
+            <use xlink:href="assets/icons/bootstrap-icons.svg#shop"></use>
+          </svg>
+          {{t 'i18n.open'}}
+        </button>
+        {{! template-lint-disable no-nested-interactive }}
+        <button
+          data-test-start-room-type={{this.roomTypes.social}}
+          type="button"
+          class="Box-row SelectMenu-item"
+          role="menuitemcheckbox"
+          aria-checked={{if (eq this.selectedRoom this.roomTypes.social) 'true'
+          }}
+          {{on 'click' (set this.selectedRoom this.roomTypes.social)}}
+        >
+          <svg
+            class="SelectMenu-icon SelectMenu-icon--check octicon octicon-check"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            width="16"
+            height="16"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M13.78 4.22C13.9204 4.36062 13.9993 4.55125 13.9993 4.75C13.9993 4.94875 13.9204 5.13937 13.78 5.28L6.53 12.53C6.38937 12.6704 6.19875 12.7493 6 12.7493C5.80125 12.7493 5.61062 12.6704 5.47 12.53L2.22 9.28C2.08752 9.13782 2.0154 8.94978 2.01882 8.75547C2.02225 8.56117 2.10096 8.37579 2.23838 8.23837C2.37579 8.10096 2.56118 8.02225 2.75548 8.01882C2.94978 8.01539 3.13782 8.08752 3.28 8.22L6 10.94L12.72 4.22C12.8606 4.07955 13.0512 4.00066 13.25 4.00066C13.4487 4.00066 13.6394 4.07955 13.78 4.22Z"
+            ></path>
+          </svg>
+          <svg class="mr-2" width="32" height="32" fill="currentColor">
+            <use xlink:href="assets/icons/bootstrap-icons.svg#people"></use>
+          </svg>
+          {{t 'i18n.social'}}
+        </button>
+        {{! template-lint-disable no-nested-interactive }}
+        <button
+          data-test-start-room-type={{this.roomTypes.closed}}
+          type="button"
+          class="Box-row border-bottom SelectMenu-item"
+          role="menuitemcheckbox"
+          aria-checked={{if (eq this.selectedRoom this.roomTypes.closed) 'true'
+          }}
+          {{on 'click' (set this.selectedRoom this.roomTypes.closed)}}
+        >
+          <svg
+            class="SelectMenu-icon SelectMenu-icon--check octicon octicon-check"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            width="16"
+            height="16"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M13.78 4.22C13.9204 4.36062 13.9993 4.55125 13.9993 4.75C13.9993 4.94875 13.9204 5.13937 13.78 5.28L6.53 12.53C6.38937 12.6704 6.19875 12.7493 6 12.7493C5.80125 12.7493 5.61062 12.6704 5.47 12.53L2.22 9.28C2.08752 9.13782 2.0154 8.94978 2.01882 8.75547C2.02225 8.56117 2.10096 8.37579 2.23838 8.23837C2.37579 8.10096 2.56118 8.02225 2.75548 8.01882C2.94978 8.01539 3.13782 8.08752 3.28 8.22L6 10.94L12.72 4.22C12.8606 4.07955 13.0512 4.00066 13.25 4.00066C13.4487 4.00066 13.6394 4.07955 13.78 4.22Z"
+            ></path>
+          </svg>
+          <svg class="mr-2" width="32" height="32" fill="currentColor">
+            <use xlink:href="assets/icons/bootstrap-icons.svg#lock"></use>
+          </svg>
+          {{t 'i18n.closed'}}
+        </button>
+      </ul>
+    </div>
+    <div data-test-start-room-footer class="Box-footer">
+      {{! template-lint-disable no-nested-interactive }}
+      <button type="button" class="btn btn-block btn-primary" data-close-dialog>
+        {{t 'i18n.let_us_go'}}
+      </button>
+    </div>
+  </details-dialog>
+</details>

@@ -1,0 +1,13 @@
+{{#if (is-empty this.model)}}
+  <EmptyState />
+{{else}}
+  <div class="d-flex">
+    <div class="tw-room-main-content">
+      {{#each this.model as |room|}}
+        <Room @room={{room}}/>
+      {{/each}}
+    </div>
+  </div>
+{{/if}}
+
+<StartRoom />
